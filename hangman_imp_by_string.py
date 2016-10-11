@@ -7,10 +7,8 @@ guess = list("_"*len(word))
 print len(word),u"个字母的单词："," ".join(guess)							# 存储猜过的字母
 life = 10 																	# 生命值
 while True:																	# 循环猜字母
-	letter = raw_input('Enter a letter:')									# letter 保存所猜字母
-	i = -1																	# i 保存循环次数（0,1,2,……）
-	for x in list(word):													# x 遍历答案里的字母
-		i += 1
+	letter = raw_input('Enter a letter:')									# letter 保存所猜字母																	# i 保存循环次数（0,1,2,……）
+	for i,x in enumerate(list(word)):													# x 遍历答案里的字母
 		ltr_loc = "".join(guess).rfind(letter)								# 答案“hello”，已猜出”_ _ l _ o“，则第二次猜‘l’的位置是3
 		if ((i > ltr_loc) or (ltr_loc < 0)) and (x == letter):				# i>loc跳过单词中已经猜过的字母
 			guess[i] = letter
